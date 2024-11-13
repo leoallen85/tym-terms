@@ -8,8 +8,8 @@ exports.handler = async () => {
         const dom = new JSDOM(html);
         const document = dom.window.document;
 
-        // Replace `div_class_replace` with the actual class name
-        const content = document.querySelector('.div_class_replace')?.innerHTML || 'Content not found';
+     
+        const content = document.querySelector('.oog-content-page__block')?.innerHTML || 'Content not found';
 
         return {
             statusCode: 200,
