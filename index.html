@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teach Your Monster Legals</title>
+</head>
+<body>
+    <h1>Teach Your Monster Legal Content</h1>
+    <div id="legal-content">Loading...</div>
+
+    <script>
+        async function fetchContent() {
+            try {
+                const response = await fetch('/.netlify/functions/fetchContent');
+                const data = await response.text();
+                document.getElementById('legal-content').innerHTML = data;
+            } catch (error) {
+                console.error('Error fetching content:', error);
+                document.getElementById('legal-content').innerText = 'Failed to load content.';
+            }
+        }
+
+        // Call the function on page load
+        fetchContent();
+    </script>
+</body>
+</html>
